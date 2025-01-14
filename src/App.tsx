@@ -12,33 +12,15 @@ import Todo from "./pages/Todo";
 import Progress from "./pages/Progress";
 import "./App.css"; // CSS ファイルをインポート
 import Setting from "./pages/Setting";
+import { Header } from "./components/Header";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div id="app">
+      <div>
         {/* ヘッダー */}
-        <header className="app-header">
-          <h1>日常生活アプリ</h1>
-        </header>
-
-        {/* ナビゲーション */}
-        <nav className="app-nav">
-          <ul>
-            <li>
-              <Link to="/home">ホーム</Link>
-            </li>
-            <li>
-              <Link to="/todo">ToDoリスト</Link>
-            </li>
-            <li>
-              <Link to="/setting">設定</Link>
-            </li>
-            <li>
-              <Link to="/progress">マップ</Link>
-            </li>
-          </ul>
-        </nav>
+        <Header />
 
         {/* メインコンテンツ */}
         <main className="app-main">
@@ -51,9 +33,7 @@ const App: React.FC = () => {
         </main>
 
         {/* フッター */}
-        <footer className="app-footer">
-          <p>今日の日付: {new Date().toLocaleDateString("ja-JP")}</p>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );
