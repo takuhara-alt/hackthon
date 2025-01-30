@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # React 開発サーバーのポート
+    volumes:
+      - ./frontend:/app
+    command: npm run start
+    depends_on:
+      - backend   # バックエンドが起動するのを待つ
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"  # Express サーバーのポート
+    volumes:
+      - ./backend:/app
+    command: npm run dev
+    environment:
+      - DB_HOST=db
+      - DB_USER=hackathon_user
+      - DB_PASS=hackathon_pass
+      - DB_NAME=hackathon
+    depends_on:
+      - db  # データベースが起動するのを待つ
+
+  db:
+    image: mysql:8.0
+    container_name: hackathon-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: hackathon
+      MYSQL_USER: hackathon_user
+      MYSQL_PASSWORD: hackathon_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
