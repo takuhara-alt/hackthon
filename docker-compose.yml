@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-version: '3'
+version: '3.9'
 
 services:
   frontend:
@@ -30,20 +29,6 @@ services:
       - DB_NAME=hackathon
     depends_on:
       - db  # データベースが起動するのを待つ
-=======
-version: '3.9'
-
-services:
-  react-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"  # ホストのポート3000で公開
-    volumes:
-      - .:/app  # ソースコードの同期
-    command: npm run start  # React 開発サーバーを起動
->>>>>>> f782b428c49d222dad4dcb278e4604efe666b5e7
 
   db:
     image: mysql:8.0
