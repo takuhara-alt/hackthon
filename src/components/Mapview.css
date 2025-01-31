@@ -1,0 +1,13 @@
+.map-container {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.8); /* 背景を少し透過させて読みやすく */
+  padding: 0 5px;
+  border-radius: 5px;
+  margin: 10px; /* 余白を調整 */
+  font-size: 12px; /* 文字サイズを少し調整 */
+}
