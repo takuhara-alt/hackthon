@@ -8,6 +8,7 @@ import Progress from "./pages/Progress";
 import Setting from "./pages/Setting";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
+import ProfileSetting from "./components/ProfileSetting";
 
 // 📌 ここでコンテキストを正しくインポート！
 import { FontSizeProvider } from "./context/FontSizeContext";
@@ -29,6 +30,7 @@ const App: React.FC = () => {
                 <Route path="/todo" element={<Todo />} />
                 <Route path="/setting" element={<Setting />} />
                 <Route path="/progress" element={<Progress />} />
+                <Route path="/profile-setting" element={<ProfileSetting />} />
               </Routes>
             </main>
 

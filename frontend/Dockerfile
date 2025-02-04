@@ -1,17 +1,20 @@
-FROM node:18
+# ベースイメージとして Node.js を使用
+FROM node:18 AS build
 
+# 作業ディレクトリを設定
 WORKDIR /app
 
-# `package.json` を確実にコピー
-COPY package.json package-lock.json ./
+# package.json と package-lock.json をコピー
+COPY package*.json ./
 
-# 依存関係のインストール
+# 依存関係をインストール
 RUN npm install
 
-# 残りのコードをコピー
+# アプリケーションのソースコードをコピー
 COPY . .
 
-# ポートを開放
-EXPOSE 3000
+# React アプリの開発サーバーを起動
+CMD ["npm", "run", "start"]
 
-CMD ["npm", "run", "dev"]
+# コンテナのポートを公開
+EXPOSE 3000

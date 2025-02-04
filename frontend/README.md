@@ -20,7 +20,7 @@ cd hackathon
 ## 2. 開発環境の立ち上げ
 、以下のコマンドで Docker コンテナをビルドし、アプリケーションを起動します
 ```angular2html
-docker-compose up --build 
+docker-compose up --build
 ```
 これにより、以下のサービスが立ち上がります
 - React アプリケーション: ポート 3000 でアクセス可能

@@ -4,8 +4,9 @@ import "./Progress.css";
 
 const Progress: React.FC = () => {
   return (
-    <div>
+    <div> 
       <MapView />
+      
     </div>
   );
 };
