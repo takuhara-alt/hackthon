@@ -13,7 +13,9 @@ const Header: React.FC = () => {
             <nav className='app-date'>
                 <p>今日の日付: {new Date().toLocaleDateString('ja-JP')}</p>
             </nav>
-        </div>        
+
+        </div>
+
     );
     }
 export {Header};

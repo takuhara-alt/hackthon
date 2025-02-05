@@ -25,11 +25,17 @@ const Todo: React.FC = () => {
 
   // 状態を切り替える関数（完了にする）
   const toggleState = (index: number) => {
-    const updatedTodos = todos.map((todo, i) =>
-        i === index ? { ...todo, completed: !todo.completed } : todo
-    );
-    setTodos(updatedTodos);
+    // 元の todos 配列のインデックスを取得
+    const realIndex = todos.findIndex(todo => todo.comment === incompleteTodos[index].comment);
+
+    if (realIndex !== -1) {
+      const updatedTodos = todos.map((todo, i) =>
+          i === realIndex ? { ...todo, completed: !todo.completed } : todo
+      );
+      setTodos(updatedTodos);
+    }
   };
+
 
   // 未完了リストと完了リストに分ける
   const incompleteTodos = todos.filter((todo) => !todo.completed);
